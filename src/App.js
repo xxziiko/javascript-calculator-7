@@ -1,5 +1,7 @@
 class App {
-  async run() {}
+  async run() {
+    const input = await ViewIn.getInput();
+  }
 }
 
 export default App;
