@@ -1,5 +1,5 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
-import { MESSEAGES } from '../utils/constants';
+import { MESSEAGES } from '../shared/constants.js';
 
 class ViewIn {
   static async getInput() {
