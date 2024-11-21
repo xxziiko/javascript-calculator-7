@@ -13,6 +13,7 @@ class ParseNumbers {
     this.#validateDelimiter(inputs);
     const numbers = this.#parseNumbers(inputs);
     this.#validateNumbers(numbers);
+
     return numbers;
   }
 

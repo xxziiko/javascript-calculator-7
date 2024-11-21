@@ -1,17 +1,11 @@
-import { Utils } from './shared/index.js';
-import { ViewIn } from './views/index.js';
-import { ParseNumbers, Calculator } from './models/index.js';
+import { ViewOut } from './views/index.js';
+import AppController from './Controllers/AppController.js';
 
 class App {
   async run() {
-    const numbers = await Utils.getResult(() => this.#getParseData());
-  }
+    const appController = new AppController();
+    const result = await appController.prosess();
 
-  async #getParseData() {
-    const input = await ViewIn.getInput();
-    const parseNumbers = new ParseNumbers(input);
-
-    return parseNumbers.numbers;
   }
 }
 
