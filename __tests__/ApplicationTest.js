@@ -73,14 +73,14 @@ const run = async ({ inputs = [], inputsToTerminate = [], expected = [] }) => {
 describe('문자열 계산기', () => {
   test('커스텀 구분자 사용1', async () => {
     await run({
-      inputs: ['//;\n1;2;3'],
+      inputs: ['//;\\n1;2;3'],
       expected: ['결과 : 6'],
     });
   });
 
   test('커스텀 구분자 사용2', async () => {
     await run({
-      inputs: ['//.\n1.2.3'],
+      inputs: ['//.\\n1.2.3'],
       expected: ['결과 : 6'],
     });
   });
