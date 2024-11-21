@@ -2,19 +2,18 @@ import { Validations } from '../shared/index.js';
 
 class ParseNumbers {
   #CUSTOM_START;
-  #numbers;
   #delimiter;
 
-  constructor(inputs) {
+  constructor() {
     this.#CUSTOM_START = '//';
     this.#delimiter = [',', ':'];
-    this.#validateDelimiter(inputs);
-    this.#numbers = this.#parseNumbers(inputs);
-    this.#validateNumbers(this.#numbers);
   }
 
-  get numbers() {
-    return this.#numbers;
+  parse(inputs) {
+    this.#validateDelimiter(inputs);
+    const numbers = this.#parseNumbers(inputs);
+    this.#validateNumbers(numbers);
+    return numbers;
   }
 
   #parseNumbers(inputs) {
