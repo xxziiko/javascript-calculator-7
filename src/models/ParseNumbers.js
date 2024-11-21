@@ -10,6 +10,8 @@ class ParseNumbers {
   }
 
   parse(inputs) {
+    if (!inputs.trim()) return [0];
+
     this.#validateDelimiter(inputs);
     const numbers = this.#parseNumbers(inputs);
     this.#validateNumbers(numbers);
