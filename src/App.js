@@ -6,6 +6,7 @@ class App {
     const appController = new AppController();
     const result = await appController.prosess();
 
+    ViewOut.printResult(result);
   }
 }
 
