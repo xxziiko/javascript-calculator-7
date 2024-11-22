@@ -88,16 +88,32 @@ describe('문자열 계산기', () => {
   test('기본 구분자 사용', async () => {
     await run({
       inputs: ['1,2:3'],
-      inputsToTerminate: ['1,2:3'],
       expected: ['결과 : 6'],
     });
   });
 
-  test.each([['-1,2,3'], ['a,1,2'], ['//;\n1'], ['1234567890']])('예외 테스트', async (input) => {
-    await runExceptions({
-      inputs: [input],
-      expectedErrorMessage: '[ERROR]',
-      inputsToTerminate: ['1,2,3'],
+  test('기본 구분자와 커스텀 구분자 혼합하여 사용', async () => {
+    await run({
+      inputs: ['//;\\n1;2,3'],
+      expected: ['결과 : 6'],
     });
   });
+
+  test('빈 문자열 입력', async () => {
+    await run({
+      inputs: [''],
+      expected: ['결과 : 0'],
+    });
+  });
+
+  test.each([['-1,2,3'], ['a,1,2'], ['//;\n1'], ['1234567890'], ['//.\n1.2;3']])(
+    '예외 테스트',
+    async (input) => {
+      await runExceptions({
+        inputs: [input],
+        expectedErrorMessage: '[ERROR]',
+        inputsToTerminate: ['1,2,3'],
+      });
+    }
+  );
 });
